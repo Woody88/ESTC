@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @shift.position %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @shift.date.to_date.to_s(:long) %>
+</p>
+
+<p>
+  <strong>Start:</strong>
+  <%= @shift.start.to_s(:time) %>
+</p>
+
+<p>
+  <strong>Finish:</strong>
+  <%= @shift.finish.to_s(:time) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @shift.description %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_shift_path(@shift) %> |
+<%= link_to 'Back', shifts_path %> | 
+<%= link_to 'Post Shift',post_shift_path(:sid => @shift.id) ,method: :post %> | 
+<%= link_to 'Trade With A Collegue', trade_request_path(@shift)%>

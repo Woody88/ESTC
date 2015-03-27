@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  position: MyString
+  date: 2015-03-26 21:26:51
+  start: 2015-03-26 21:26:51
+  finish: 2015-03-26 21:26:51
+  description: MyText
+  workflow_state: MyString
+  shift_type: MyString
+
+two:
+  position: MyString
+  date: 2015-03-26 21:26:51
+  start: 2015-03-26 21:26:51
+  finish: 2015-03-26 21:26:51
+  description: MyText
+  workflow_state: MyString
+  shift_type: MyString

@@ -1,0 +1,44 @@
+
+<%= simple_form_for(@shift) do |f| %>
+  <%= f.error_notification %>
+
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.input :position, as: :select, collection:['Zone 5 Gates','Zone 1 Gates','Zone 3 Gates','Zone 4 Gates', ] %>
+      </div>
+    </div>
+    
+     <div class="row">
+      <div class="col-sm-2">
+        <%= f.input :date, as: :string, placeholder: 'January 15, 2015', :input_html => { :value => f.object.date.to_date.to_s(:long) } %>
+         </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-2 inline">
+        <%= f.input :start, as: :time,as: :string, placeholder:"hrs:mins", :input_html => { :value => f.object.start.to_s(:time) } %>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-2 inline">
+        <%= f.input :finish, as: :time,as: :string, placeholder:"hrs:mins", :input_html => { :value => f.object.start.to_s(:time) } %>
+        </div>
+    </div>
+    
+     <div class="row">
+      <div class="col-sm-3 inline">
+        <%= f.input :description %>
+      </div>
+    </div>
+    
+  
+
+   <div class="row">
+    <div class="col-sm-3 inline">
+      <%= f.button :submit %>
+      </div>
+    </div>
+  
+
+  <% end %>

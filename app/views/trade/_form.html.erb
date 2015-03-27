@@ -1,0 +1,48 @@
+
+<%= simple_form_for @shift, url: trade_request_path do |f| %>
+  <%= f.error_notification %>
+
+    <div class="row">
+      <div class="col-sm-2">
+      <%= f.input :position, as: :string, input_html: {:value => f.object.position}, disabled: true%>
+      </div>
+    </div>
+    
+     <div class="row">
+      <div class="col-sm-2">
+        <%= f.input :date, as: :string, placeholder: 'January 15, 2015', input_html: { :value => f.object.date.to_date.to_s(:long) }, disabled: true %>
+         </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-2 inline">
+        <%= f.input :start, as: :time,as: :string, placeholder:"hrs:mins", input_html: { :value => f.object.start.to_s(:time) } %>
+        </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-2 inline">
+        <%= f.input :finish, as: :time,as: :string, placeholder:"hrs:mins", input_html: { :value => f.object.start.to_s(:time) } %>
+        </div>
+    </div>
+    
+     <div class="row">
+      <div class="col-sm-3 inline">
+        <%= f.input :description %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-sm-2 inline">
+        <%= f.input :tr_user_id, placeholder: 'Select A Collegue', collection: User.all.where.not(id: current_user.id).collect{|u| [u.email, u.id]}, :prompt => 'Select' , default: 1, label: false  %>
+      </div>
+    </div>
+
+   <div class="row">
+    <div class="col-sm-3 inline">
+      <%= f.button :submit %>
+      </div>
+    </div>
+  
+
+  <% end %>

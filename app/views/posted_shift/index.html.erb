@@ -1,0 +1,46 @@
+<table class="table table-striped table-hover table-bordered">
+
+        <thead>
+
+            <tr>
+
+                <th>Email</th>
+                
+                <th>Position</th>
+                
+                <th>Date</th>
+
+                <th>Start</th>
+                
+                <th>End</th>
+                <th>Description</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+            <% @shifts.each do |shift| %>
+            <tr>
+
+                <td><%= shift.user.email %></td>
+                <td><%= shift.position %></td>
+                <td><%= shift.date.to_date.to_s(:long)%></td>
+
+                <td><%= shift.start.to_s(:time)%></td>
+                <td><%= shift.finish.to_s(:time)%></td>
+                <td><%= shift.description %></td>
+                <% if shift.user_id == current_user.id %>
+                    <td><%= link_to 'Remove', cancel_shift_path(shift), method: :post %></td>
+                <% else %>
+                    <td><%= link_to 'Pick Up', pick_up_shift_path(shift), method: :post %></td>
+                <% end %>
+
+            </tr>
+
+           <% end %>
+            
+        </tbody>
+      
+    </table>
+
