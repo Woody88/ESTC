@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'trade_request/:id' => 'trade#trade_request', as: 'trade_request'
   get 'incoming_trade_request' => 'trade#incoming_trade_request', as: 'incoming_trade_request'
-  post '/accept_shift/:id/accept_shift', to:'trade#accept_shift', as: 'accept_shift'
+  get 'pending_request' => 'trade#pending_request', as: 'pending_request'
+  post '/accept_shift/:id', to:'trade#accept_shift', as: 'accept_shift'
+  delete '/decline_shift/:id', to:'trade#decline_shift', as: 'decline_shift'
  resources :trade_request,  :except => [:index, :new, :update, :create, :destroy, :edit, :show] do
    member do
      put '' => 'trade#send_request'
@@ -14,8 +16,8 @@ Rails.application.routes.draw do
  
 
   get 'shift_trade_board' => 'posted_shift#index', as: 'shift_trade_board'
-  post 'post_shift' => 'posted_shift#post_shift', as: 'post_shift' 
-  post '/cancel_shift/:id/remove', to:'posted_shift#cancel_shift', as: 'cancel_shift'
+  post 'post_shift/:id' => 'posted_shift#post_shift', as: 'post_shift' 
+  post '/cancel_shift/:id', to:'posted_shift#cancel_shift', as: 'cancel_shift'
   post '/pick_up_shift/:id/pickup', to:'posted_shift#pick_up_shift', as: 'pick_up_shift'
   resources :shifts
 

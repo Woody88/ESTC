@@ -30,8 +30,7 @@
                 <td><%= shift.start.to_s(:time)%></td>
                 <td><%= shift.finish.to_s(:time)%></td>
                 <td><%= shift.description %></td>
-                <td><%= link_to 'Accept',  accept_shift_path(shift), method: :post %></td>
-                <td><%= link_to 'Decline', decline_shift_path(shift), method: :delete %></td>
+                <td><%= link_to 'Revoke', decline_shift_path(shift), method: :delete %></td>
 
             </tr>
 

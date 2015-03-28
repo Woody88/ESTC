@@ -6,4 +6,17 @@ class User < ActiveRecord::Base
          
   has_many :shifts
 
+  def available?(trade_shift)
+        @shift = self.shifts.where(date: trade_shift.date).first
+        if !@shift.nil?
+            if @shift.overlaps?(trade_shift)
+                return false
+            else
+                return true
+            end
+        else 
+            return true
+        end
+    end
+    
 end

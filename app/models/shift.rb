@@ -7,11 +7,13 @@ class Shift < ActiveRecord::Base
         state :new do
             event :post, :transitions_to => :posted
             event :trade_request, :transitions_to => :pending_request
+            
         end
         
         state :posted do
             event :sold, :transitions_to => :traded
             event :cancel, :transitions_to => :new
+            event :trade_request, :transitions_to => :pending_request
         end
         
         state :pending_request do 
@@ -31,4 +33,10 @@ class Shift < ActiveRecord::Base
     def calendar_end_time
         finish.change(day: date.day, month: date.month, year: date.year)
     end
+    
+    
+    def overlaps?(shift)
+        (start - shift.finish) * (shift.start - finish) > 0
+    end
+    
 end
