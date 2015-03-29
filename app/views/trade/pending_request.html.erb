@@ -1,42 +1,57 @@
-<table class="table table-striped table-hover table-bordered">
 
-        <thead>
 
-            <tr>
-
-                <th>Email</th>
-                
-                <th>Position</th>
-                
-                <th>Date</th>
-
-                <th>Start</th>
-                
-                <th>End</th>
-                <th>Description</th>
-
-            </tr>
-
-        </thead>
-
-        <tbody>
-            <% @shifts.each do |shift| %>
-            <tr>
-
-                <td><%= shift.user.email %></td>
-                <td><%= shift.position %></td>
-                <td><%= shift.date.to_date.to_s(:long)%></td>
-
-                <td><%= shift.start.to_s(:time)%></td>
-                <td><%= shift.finish.to_s(:time)%></td>
-                <td><%= shift.description %></td>
-                <td><%= link_to 'Revoke', decline_shift_path(shift), method: :delete %></td>
-
-            </tr>
-
-           <% end %>
+    <div class="method">
+        <div class="row margin-0 list-header hidden-sm hidden-xs">
+            <div class="col-md-3"><div class="header">Email</div></div>
+            <div class="col-md-2"><div class="header">Position</div></div>
+            <div class="col-md-2"><div class="header">Date</div></div>
+            <div class="col-md-2"><div class="header">start-end</div></div>
+            <div class="col-md-3"><div class="header">Description</div></div>
+        </div>
+        
+        <% @shifts.each do |shift| %>
+           
+        <div class="row margin-0">
+            <div class="col-md-3">
+                <div class="cell">
+                    <div class="propertyname">
+                         <%= shift.user.email %>  <span class="mobile-isrequired">[Required]</span>
+                    </div>
+                </div>
+            </div>
             
-        </tbody>
+            <div class="col-md-2">
+                <div class="cell">
+                    <div class="type">
+                       <%= shift.position %> <span class="mobile-isrequired">[Required]</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="cell">
+                    <div class="type">
+                       <%= shift.date.to_date.to_s(:long) %> <span class="mobile-isrequired">[Required]</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-2">
+                <div class="cell">
+                    <div class="type">
+                       <%= "#{shift.start.to_s(:time)} - #{shift.finish.to_s(:time)}" %> <span class="mobile-isrequired">[Required]</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-3">
+                <div class="cell">
+                    <div class="description">
+                        <%= shift.description %>
+                    </div>
+                </div>
+            </div>
+        </div>
+      <% end %>
       
-    </table>
+        </div>
 

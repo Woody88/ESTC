@@ -1,6 +1,7 @@
 class PostedShiftController < ApplicationController
    before_action :authenticate_user!
    before_action :set_shift, only: [:cancel_shift, :pick_up_shift, :post_shift]
+   
   def index
     @shifts = Shift.with_posted_state.includes(:user)
     

@@ -26,7 +26,7 @@ class ShiftsController < ApplicationController
     @shift = Shift.new(shift_params)
     @shift.original_owner = @shift.user_id = current_user.id
     @shift.save
-    respond_with(@shift)
+    respond_with(@shift, :location => calendar_path)
   end
 
   def update

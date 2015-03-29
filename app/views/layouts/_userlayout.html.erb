@@ -1,24 +1,26 @@
 <%- #------------Side Bar--------------%> 
 <div class="col-sm-3 col-md-3">
+    
+    
             <div class="panel-group" id="accordion">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h4 class="panel-title">
                             <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
-                            </span>Content</a>
+                            </span>Air Canada</a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
+                    <div id="collapseOne" class="panel-collapse collapse ">
                         <div class="panel-body">
                             <table class="table">
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">Articles</a>
+                                        <span class="glyphicon glyphicon-pencil text-primary"></span><a href="https://acaeronet.aircanada.ca">Aeronet</a>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">News</a>
+                                        <span class="glyphicon glyphicon-flash text-success"></span><a href="http://yyzdistrict301.com">Unifor</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -140,6 +142,22 @@
                     </div>
                 </div>
             </div>
+                <% if current_page?(:controller => 'calendar') %>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-file">
+                            </span>Add A New Shift</a>
+                        </h4>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <%= render 'shifts/form2' %>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+          
         </div>
 <%- #-------------END Side Bar ----------------%>
         <div class="col-sm-9 col-md-9">

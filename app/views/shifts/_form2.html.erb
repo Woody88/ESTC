@@ -1,33 +1,33 @@
-<div class="container">
+
 <%= simple_form_for(@shift) do |f| %>
   <%= f.error_notification %>
 
     <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-12">
       <%= f.input :position, as: :select, collection:['Zone 5 Gates','Zone 1 Gates','Zone 3 Gates','Zone 4 Gates', ] %>
       </div>
     </div>
     
      <div class="row">
-      <div class="col-sm-2">
+      <div class="col-sm-12">
         <%= f.input :date, as: :string, placeholder: 'January 15, 2015' %>
          </div>
     </div>
     
     <div class="row">
-      <div class="col-sm-2 inline">
+      <div class="col-sm-12 inline">
         <%= f.input :start, as: :time,as: :string, placeholder:"hrs:mins"  %>
         </div>
     </div>
     
     <div class="row">
-      <div class="col-sm-2 inline">
+      <div class="col-sm-12 inline">
         <%= f.input :finish, as: :time,as: :string, placeholder:"hrs:mins" %>
         </div>
     </div>
     
      <div class="row">
-      <div class="col-sm-3 inline">
+      <div class="col-sm-12 inline">
         <%= f.input :description %>
       </div>
     </div>
@@ -35,11 +35,10 @@
   
 
    <div class="row">
-    <div class="col-sm-3 inline">
+    <div class="col-sm-12 inline">
       <%= f.button :submit %>
       </div>
     </div>
   
 
   <% end %>
-  </div>
