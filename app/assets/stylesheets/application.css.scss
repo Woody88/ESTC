@@ -47,11 +47,26 @@ nav {
 }
 
 .alert-box {
+    position: relative;
     width: 98%;
     margin: 0 auto;
     padding: 0;
     margin-top: -20px;
     border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+.close_box {
+    display:inline-block;
+    color: #222;
+    float: right;
+    margin-right:5px;
+}
+
+.close_box:hover{
+    text-shadow: 1px 1px 1px  #fff;
+    cursor: pointer;
+    
 }
 .alert {
     background-color: #e74c3c;

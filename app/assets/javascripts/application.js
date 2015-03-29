@@ -17,3 +17,17 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  
+     $('.alert-box').delay(5000).slideUp("slow")
+     
+      $('.close_box').on('click', function(){
+        $('.alert-box').stop();
+       $('.alert-box').slideUp("slow");
+    });
+     
+      
+});
+
+

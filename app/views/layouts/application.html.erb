@@ -50,7 +50,7 @@
       </div>
     </nav>
     <% flash.each do |message_type, message| %>
-        <div class="alert-box <%= message_type %> radius"><%= message %></div>
+        <div class="alert-box <%= message_type %> radius"><%= message %><div class="close_box">X</div></div>
       <% end %>
 <div class="container">
   
