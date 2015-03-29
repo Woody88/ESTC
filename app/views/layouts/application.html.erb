@@ -49,12 +49,16 @@
         </div><!--/.nav-collapse -->
       </div>
     </nav>
+    
     <% flash.each do |message_type, message| %>
         <div class="alert-box <%= message_type %> radius"><%= message %><div class="close_box">X</div></div>
-      <% end %>
-<div class="container">
-  
-  <%= yield %>
+    <% end %>
+<div class="container" >
+  <% if signed_in? %>
+    <%= render '/layouts/userlayout' %>
+  <% else %>
+    <%= yield %>
+  <% end %>
 </div>
 
 
